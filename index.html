@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Vanguard Chronicle — Independent Journalism & Global Perspectives</title>
+  <meta name="description" content="A modern editorial news and magazine publication covering global affairs, deep technology, economic shifts, science, culture, and architecture.">
+
+  <!-- Open Graph / Social Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="The Vanguard Chronicle — Independent Journalism & Global Perspectives">
+  <meta property="og:description" content="Award-winning global news and deep editorial analysis.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1200&q=80">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📰</text></svg>">
+</head>
+<body>
+
+  <!-- =========================================================================
+       1. TOP UTILITY BAR (Live date, Weather, Stocks, Theme & Bookmark controls)
+       ========================================================================= -->
+  <aside class="top-bar" aria-label="Top bar utilities">
+    <div class="container top-bar-inner">
+      <div class="top-bar-left">
+        <span class="live-badge">Live Edition</span>
+        <span id="live-date-display">Loading date...</span>
+        <span class="weather-indicator">⛅ London & NY 19°C / 66°F</span>
+      </div>
+
+      <!-- Stock pulse ticker snippet -->
+      <div class="stock-pulse-container" aria-label="Financial Market Index">
+        <div class="stock-pill"><span class="stock-sym">S&amp;P 500</span> <span class="stock-val">5,864.67</span> <span class="stock-change positive">▲ +0.48%</span></div>
+        <div class="stock-pill"><span class="stock-sym">NASDAQ</span> <span class="stock-val">18,518.61</span> <span class="stock-change positive">▲ +0.73%</span></div>
+        <div class="stock-pill"><span class="stock-sym">BTC/USD</span> <span class="stock-val">$91,420</span> <span class="stock-change positive">▲ +3.45%</span></div>
+      </div>
+
+      <div class="top-bar-right">
+        <!-- Bookmark drawer trigger -->
+        <button id="drawer-trigger-btn" class="btn-control" title="View saved bookmarks">
+          <span>☆ Saved</span>
+          <span class="badge-counter" id="bookmark-counter-badge">0</span>
+        </button>
+
+        <!-- Dark/Light Theme toggle -->
+        <button id="theme-toggle-btn" class="btn-control" title="Toggle theme mode" aria-label="Toggle theme">
+          <span id="theme-icon">🌙</span>
+          <span>Theme</span>
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- =========================================================================
+       2. EDITORIAL MASTHEAD
+       ========================================================================= -->
+  <header class="masthead">
+    <div class="container">
+      <div class="masthead-meta-top">
+        <span>Vol. CXXVIII · No. 42</span>
+        <span>Veritas, Claritas, Universitas</span>
+        <span>Global Digital Edition</span>
+      </div>
+
+      <a href="index.html" style="display: block; text-decoration: none;">
+        <h1 class="masthead-title">The Vanguard Chronicle</h1>
+      </a>
+      <p class="masthead-tagline">Independent Journalism, Thoughtful Analysis &amp; Global Perspectives</p>
+
+      <div class="masthead-meta-bottom">
+        <span>ESTABLISHED 1898</span>
+        <span>ACCREDITED PRESS INTERNATIONAL</span>
+        <span>PULITZER CITATION RECIPIENT</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       3. BREAKING NEWS TICKER
+       ========================================================================= -->
+  <section class="ticker-bar" aria-label="Breaking News">
+    <div class="ticker-label">
+      <span>⚡ BREAKING</span>
+    </div>
+    <div class="ticker-content">
+      <div class="ticker-track" id="ticker-track">
+        <!-- Injected via JavaScript from NEWS_DATA.breakingNews -->
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       4. MAIN STICKY NAVIGATION
+       ========================================================================= -->
+  <nav class="main-nav" aria-label="Main Navigation">
+    <div class="container nav-container">
+      <button class="btn-menu-mobile" id="mobile-nav-toggle" aria-label="Toggle Navigation Menu">
+        ☰
+      </button>
+
+      <!-- Category Filter Tabs -->
+      <div class="nav-categories" id="nav-categories-list">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+
+      <div class="nav-actions">
+        <!-- Global Search Trigger -->
+        <button class="btn-search-trigger" id="search-trigger-btn" aria-label="Search articles">
+          <span>🔍</span>
+          <span>Search</span>
+          <span class="search-shortcut">⌘K</span>
+        </button>
+
+        <a href="#newsletter-section" class="btn-subscribe-nav">Subscribe</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- =========================================================================
+       5. MAIN EDITORIAL CONTENT & SIDEBAR
+       ========================================================================= -->
+  <main class="container editorial-layout">
+
+    <!-- LEFT CONTENT AREA -->
+    <div class="content-column">
+
+      <!-- HERO SECTION: Major Lead Headline Story + Secondary Column -->
+      <section class="hero-editorial-grid" aria-label="Top Headline Stories">
+        <!-- Major Lead Story (8 cols) -->
+        <div id="lead-article-container">
+          <!-- Rendered dynamically -->
+        </div>
+
+        <!-- Secondary Stories (4 cols) -->
+        <div class="secondary-lead-column" id="secondary-lead-container">
+          <!-- Rendered dynamically -->
+        </div>
+      </section>
+
+      <!-- THE BIG PICTURE (Visual Stories Strip) -->
+      <section class="visual-strip-section" aria-label="Visual Journalism">
+        <div class="visual-strip-header">
+          <h3 class="visual-strip-title">The Big Picture · Photojournalism</h3>
+          <span style="font-size: 0.75rem; text-transform: uppercase; font-weight: 700; color: var(--text-muted);">Curated Dispatches</span>
+        </div>
+        <div class="visual-strip-grid" id="visual-strip-grid">
+          <!-- Rendered dynamically -->
+        </div>
+      </section>
+
+      <!-- FEATURED ARTICLES SECTION -->
+      <section class="featured-articles-section" aria-label="Featured Articles">
+        <div class="section-heading">
+          <h2 class="section-title" id="featured-category-title">Featured Articles</h2>
+          <span class="section-link">Editorial Selection</span>
+        </div>
+
+        <!-- 3-Column Articles Grid -->
+        <div class="articles-grid" id="featured-articles-grid">
+          <!-- Rendered dynamically -->
+        </div>
+      </section>
+
+      <!-- LATEST NEWS STREAM (Chronological Timeline) -->
+      <section class="latest-news-section" aria-label="Latest News Stream">
+        <div class="section-heading">
+          <h2 class="section-title">Latest News &amp; Wire Feed</h2>
+          <span class="live-badge">Auto-Refreshed</span>
+        </div>
+
+        <div class="stream-filter-bar">
+          <span>Real-time correspondent dispatches &amp; wire updates</span>
+          <span style="font-size: 0.75rem; color: var(--text-muted);">Sorted chronologically</span>
+        </div>
+
+        <div class="stream-list" id="latest-stream-list">
+          <!-- Rendered dynamically -->
+        </div>
+      </section>
+
+      <!-- AUTHOR SHOWCASE SECTION -->
+      <section class="author-showcase-section" aria-label="Author Profiles">
+        <div class="section-heading">
+          <h2 class="section-title">Senior Correspondents &amp; Columnists</h2>
+          <span class="section-link">Our Newsroom</span>
+        </div>
+
+        <div class="author-cards-grid" id="author-cards-grid">
+          <!-- Rendered dynamically -->
+        </div>
+      </section>
+
+    </div>
+
+    <!-- RIGHT SIDEBAR SECTION -->
+    <aside class="sidebar-column" aria-label="Sidebar">
+      <div class="sidebar-sticky-wrap">
+
+        <!-- Widget 1: Trending & Most Read -->
+        <div class="sidebar-widget">
+          <div class="widget-heading">
+            <span>Trending Stories</span>
+            <span style="font-size: 0.7rem; font-weight: 700; color: var(--accent-editorial);">Top 5</span>
+          </div>
+          <div class="trending-list" id="trending-list-container">
+            <!-- Rendered dynamically -->
+          </div>
+        </div>
+
+        <!-- Widget 2: Newsletter Subscription CTA -->
+        <div class="sidebar-widget newsletter-widget" id="newsletter-section">
+          <div class="newsletter-icon">✉</div>
+          <h3 style="font-family: var(--font-serif); font-size: 1.25rem; font-weight: 800; margin-bottom: 0.35rem;">The Morning Dispatch</h3>
+          <p class="newsletter-desc">Delivering sharp geopolitical analysis, emerging tech breakthroughs, and economic insights directly to your inbox every morning at 6:00 AM.</p>
+
+          <form class="newsletter-form" id="newsletter-form">
+            <input type="email" class="newsletter-input" id="newsletter-email-input" placeholder="Enter your email address" required />
+            <button type="submit" class="btn-newsletter-submit">Subscribe Free</button>
+          </form>
+
+          <div id="newsletter-feedback-msg" class="newsletter-feedback"></div>
+        </div>
+
+        <!-- Widget 3: Financial & Crypto Pulse -->
+        <div class="sidebar-widget market-pulse-widget">
+          <div class="widget-heading">
+            <span>Market Pulse</span>
+            <span style="font-size: 0.7rem; color: var(--text-muted); font-weight: 600;">Global Indices</span>
+          </div>
+          <div class="market-list" id="market-pulse-list">
+            <!-- Rendered dynamically -->
+          </div>
+        </div>
+
+        <!-- Widget 4: Editor's Note / Thought of the Day -->
+        <div class="quote-widget">
+          <p class="quote-text">“A free press is not an ornament of democracy, but its foundational scaffolding. Without uncompromising inquiry, truth quickly succumbs to convenience.”</p>
+          <div class="quote-author">— Arthur Sterling, Editor-in-Chief</div>
+        </div>
+
+        <!-- Widget 5: Popular Topics Tag Cloud -->
+        <div class="sidebar-widget">
+          <div class="widget-heading">
+            <span>Topics in Focus</span>
+          </div>
+          <div class="tags-cloud" id="tags-cloud-container">
+            <!-- Rendered dynamically -->
+          </div>
+        </div>
+
+      </div>
+    </aside>
+
+  </main>
+
+  <!-- =========================================================================
+       6. EDITORIAL FOOTER
+       ========================================================================= -->
+  <footer class="editorial-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Col 1: Brand & Mission -->
+        <div>
+          <h3 class="footer-brand-title">The Vanguard Chronicle</h3>
+          <p class="footer-tagline">“Veritas, Claritas, Universitas”</p>
+          <p style="font-size: 0.8125rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1rem;">
+            A global journalism institution dedicated to factual rigor, in-depth investigative reporting, and architectural clarity in an age of informational turbulence.
+          </p>
+          <div class="footer-socials">
+            <a href="#" class="social-icon-btn" title="Twitter / X" aria-label="Twitter">𝕏</a>
+            <a href="#" class="social-icon-btn" title="LinkedIn" aria-label="LinkedIn">in</a>
+            <a href="#" class="social-icon-btn" title="YouTube" aria-label="YouTube">▶</a>
+            <a href="#" class="social-icon-btn" title="RSS Feed" aria-label="RSS Feed">⟲</a>
+          </div>
+        </div>
+
+        <!-- Col 2: News Desks -->
+        <div>
+          <h4 class="footer-col-title">News Desks</h4>
+          <ul class="footer-links">
+            <li><a href="javascript:void(0)" onclick="window.NEWS_APP_FILTER('World')">World &amp; Diplomacy</a></li>
+            <li><a href="javascript:void(0)" onclick="window.NEWS_APP_FILTER('Technology')">Technology &amp; AI</a></li>
+            <li><a href="javascript:void(0)" onclick="window.NEWS_APP_FILTER('Business')">Markets &amp; Economy</a></li>
+            <li><a href="javascript:void(0)" onclick="window.NEWS_APP_FILTER('Science')">Science &amp; Biosphere</a></li>
+            <li><a href="javascript:void(0)" onclick="window.NEWS_APP_FILTER('Culture')">Culture &amp; Design</a></li>
+            <li><a href="javascript:void(0)" onclick="window.NEWS_APP_FILTER('Opinion')">Op-Eds &amp; Columnists</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Standards & Press -->
+        <div>
+          <h4 class="footer-col-title">Integrity &amp; Standards</h4>
+          <ul class="footer-links">
+            <li><a href="#">Editorial Charter</a></li>
+            <li><a href="#">Fact-Checking Standards</a></li>
+            <li><a href="#">Corrections Policy</a></li>
+            <li><a href="#">Whistleblower Drop</a></li>
+            <li><a href="#">Newsroom Diversity</a></li>
+            <li><a href="#">Careers at Vanguard</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Digital Services & Access -->
+        <div>
+          <h4 class="footer-col-title">Digital Edition</h4>
+          <ul class="footer-links">
+            <li><a href="#">Mobile Application (iOS/Android)</a></li>
+            <li><a href="#">ePaper Digital Replica</a></li>
+            <li><a href="#">Audio Editions &amp; Podcasts</a></li>
+            <li><a href="#">Institutional Subscriptions</a></li>
+            <li><a href="#">Crosswords &amp; Games</a></li>
+            <li><a href="#">Customer Care</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Footer Bottom Bar -->
+      <div class="footer-bottom-bar">
+        <div>
+          © 2026 The Vanguard Chronicle Publishing Co. All Rights Reserved.
+        </div>
+        <div style="display: flex; gap: 1.5rem;">
+          <a href="#">Terms of Service</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Cookie Preferences</a>
+          <a href="#">Site Map</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =========================================================================
+       7. INTERACTIVE ARTICLE READER MODAL
+       ========================================================================= -->
+  <div class="modal-overlay" id="article-reader-modal" role="dialog" aria-modal="true" aria-label="Article Reader">
+    <div class="modal-reader-card">
+
+      <!-- Reading progress indicator bar -->
+      <div class="reader-progress-container">
+        <div class="reader-progress-bar" id="reader-progress-bar"></div>
+      </div>
+
+      <!-- Action bar -->
+      <div class="modal-action-bar">
+        <div class="modal-actions-left">
+          <span style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: var(--text-muted);">Text Size:</span>
+          <button class="btn-modal-action" id="font-compact-btn" title="Compact Font">A-</button>
+          <button class="btn-modal-action" id="font-normal-btn" title="Default Font">A</button>
+          <button class="btn-modal-action" id="font-large-btn" title="Large Font">A+</button>
+        </div>
+
+        <div class="modal-actions-right">
+          <button class="btn-modal-action" id="modal-bookmark-toggle-btn">☆ Save Story</button>
+          <button class="btn-modal-action" id="modal-share-btn">🔗 Share</button>
+          <button class="btn-close-modal" id="modal-close-btn" title="Close article (Esc)">✕</button>
+        </div>
+      </div>
+
+      <!-- Scrollable article text -->
+      <div class="modal-scroll-area" id="modal-scroll-area">
+        <div id="modal-article-render">
+          <!-- Populated dynamically by app.js -->
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       8. SAVED BOOKMARKS SLIDE-OVER DRAWER
+       ========================================================================= -->
+  <div class="drawer-overlay" id="bookmarks-drawer-overlay"></div>
+  <div class="drawer-panel" id="bookmarks-drawer-panel" role="dialog" aria-modal="true" aria-label="Saved Bookmarks">
+    <div class="drawer-header">
+      <h3 class="drawer-title">Saved Articles</h3>
+      <button class="btn-close-modal" id="drawer-close-btn" aria-label="Close drawer">✕</button>
+    </div>
+    <div class="drawer-list" id="bookmarks-drawer-list">
+      <!-- Injected dynamically -->
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       9. GLOBAL SEARCH OVERLAY (Ctrl/Cmd + K)
+       ========================================================================= -->
+  <div class="search-overlay" id="search-overlay" role="dialog" aria-modal="true" aria-label="Search Articles">
+    <div class="search-box-wrap">
+      <div class="search-input-row">
+        <span style="font-size: 1.25rem;">🔍</span>
+        <input type="text" class="search-input-field" id="search-input-field" placeholder="Search stories, topics, authors (e.g. AI, energy, Rostova)..." autocomplete="off" />
+        <button class="btn-close-modal" id="search-close-btn" aria-label="Close search">✕</button>
+      </div>
+      <div class="search-results-list" id="search-results-list">
+        <!-- Injected dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       10. TOAST NOTIFICATIONS CONTAINER
+       ========================================================================= -->
+  <div class="toast-container" id="toast-container" aria-live="polite"></div>
+
+  <!-- Helper for footer category clicks -->
+  <script>
+    window.NEWS_APP_FILTER = function(category) {
+      const btn = document.querySelector(`.nav-cat-btn[data-cat-id="${category}"]`);
+      if (btn) btn.click();
+      window.scrollTo({ top: 400, behavior: 'smooth' });
+    };
+  </script>
+
+  <!-- Core Scripts -->
+  <script src="js/news-data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
